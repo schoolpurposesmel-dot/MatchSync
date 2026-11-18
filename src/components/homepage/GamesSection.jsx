@@ -1,7 +1,7 @@
-import valorantImg from '../assets/valorant.jpg'
-import mlImg from '../assets/Ml.jpg'
-import lolImg from '../assets/LOL.jpg'
-import codImg from '../assets/COD.jpg'
+import valorantImg from "../../assets/valorant.jpg";
+import mlImg from "../../assets/Ml.jpg";
+import lolImg from "../../assets/LOL.jpg";
+import codImg from "../../assets/COD.jpg";
 
 function GamesSection() {
     return (
