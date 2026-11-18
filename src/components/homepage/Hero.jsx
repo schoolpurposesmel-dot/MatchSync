@@ -3,7 +3,12 @@ function Hero(){
     return(
         <section
                 className="relative bg-gray-950 px-8 py-24 text-white"
-                
+                style={{
+                  backgroundImage: `url(${hero_bg})`,
+                  backgroundSize: '100% auto',
+                  backgroundPosition: '100% 45%',
+                  backgroundRepeat: 'no-repeat'
+                }}
                 
                 >
                

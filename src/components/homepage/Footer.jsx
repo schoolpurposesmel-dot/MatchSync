@@ -1,7 +1,7 @@
 
 function Footer() {
     return(
-       <footer className="border-t border-gray-800 bg-gray-950 px-8 py-12 text-white">
+       <footer className="border-t border-purple-500/40 shadow-[0_-4px_15px_rgba(168,85,247,0.15)] bg-gray-950 px-8 py-12 text-white">
         <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
                 <div>

@@ -4,8 +4,8 @@ import codImg from "../../assets/COD.jpg";
 
 function FeaturedScrims() {
     return (
-        <section className = "bg-gray-950 px-8 py-16 text-white">
-            <div className = "mx-auto max-w-7xl space-y-5">
+        <section className="bg-gray-950 px-8 py-16 text-white">
+            <div className = "relative z-10 mx-auto max-w-7xl space-y-5">
               <h2 className = "text-3xl font-bold"> Featured Scrims </h2>
               <p className = "text-gray-400 py-3">
                 Find teams looking for their next opponent.

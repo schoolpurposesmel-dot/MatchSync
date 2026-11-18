@@ -5,8 +5,9 @@ import codImg from "../../assets/COD.jpg";
 
 function GamesSection() {
     return (
-        <section className = "bg-gray-900 px-5 py-16 text-white">
-                    <div className = "mx-auto max-w-7xl">
+        <section className="border-t border-purple-500/40 shadow-[0_-4px_15px_rgba(168,85,247,0.15)] bg-gray-900 px-5 py-16 text-white">
+            
+                    <div className="relative z-10 mx-auto max-w-7xl">
                       <h2 className = "text-3xl font-bold"> Games Available </h2>
                       <p className = "mt-2 text-gray-400">
                         Choose your game and find teams to compete against.
@@ -14,7 +15,7 @@ function GamesSection() {
         
         
                     <div className = "mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
-                      <div className = "overflow-hiddenrounded-xl border border-gray-800 bg-gray-950 transition duration-300 hover:-translate-y-3 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10">
+                      <div className = "overflow-hidden rounded-xl border border-gray-800 bg-gray-950 transition duration-300 hover:-translate-y-3 hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10">
                         <img
                         src = {valorantImg}
                         alt="Valorant"
