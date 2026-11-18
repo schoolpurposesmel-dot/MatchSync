@@ -2,7 +2,7 @@
 function Navbar() {
     return (
          <nav className = "flex items-center justify-between bg-gray-950 px-8 py-5 text-white">
-        <h2 className = "text-2xl font-bold text - purple-500"> MATCHSYNC </h2>
+        <h2 className = "text-2xl font-bold"> MATCH<span className="text-2xl font-bold text-purple-500">SYNC</span> </h2>
 
         <div className = "flex items-center gap-8">
           <a href="#" classsName = "text-gray-300 hover:text-white"> Home </a>

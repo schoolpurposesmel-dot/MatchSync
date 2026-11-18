@@ -4,6 +4,7 @@ import GamesSection from './components/GamesSection'
 import FeaturedScrims from './components/FeaturedScrims'
 import FeaturedTournaments from './components/FeaturedTournaments'
 import HowItWorks from './components/HowItWorks'
+import Footer from './components/Footer'
 
 
 
@@ -25,6 +26,8 @@ function App() {
       <FeaturedTournaments />    
         
       <HowItWorks />
+
+      <Footer />
       
      </div>
   )
