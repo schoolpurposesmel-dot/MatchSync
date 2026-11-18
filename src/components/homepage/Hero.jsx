@@ -13,11 +13,16 @@ function Hero(){
                 >
                
                 <div className = "mx-auto max-w-7xl">
-                <h1 className="text-5xl font-bold text-purple-500">
-                  Find Your Next <span className="text-purple-500">Rival</span>
+                <h1 className="text-8xl font-bold">
+                  MATCH<span className="text-purple-500">SYNC</span>
+                </h1>
+
+                <div className = "mx-auto max-w-7xl">
+                <h1 className="mt-2 text-2xl font-bold text-purple-500">
+                  Find Your Next Rival
                 </h1>
         
-                <p className = "mt-6 max-w-2xl text-lg text-gray-400">
+                <p className = "mt-3 max-w-2xl text-lg text-gray-400">
                   MatchSync connects esports teams for competitive scrims and tournaments.
                   Find opponents, schedule matches, and prove your skills.
                 </p> 
@@ -30,6 +35,7 @@ function Hero(){
                 <button className = "rounded-lg bg-gray-600 px-6 py-3 font-semibold hover:bg-gray-700"> 
                   View Tournaments 
                   </button>
+                </div>
                 </div>
                 </div>
               </section>
