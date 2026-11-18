@@ -1,11 +1,7 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+  
 
   return (
     <div>
@@ -42,11 +38,61 @@ function App() {
         <button className = "rounded-lg bg-gray-600 px-6 py-3 font-semibold hover:bg-gray-700"> 
           View Tournaments 
           </button>
+        </div>
+        </div>
+      </section>
 
-    </div>
-    </div>
-  </section>
-  </div>
+      
+        <section className = "bg-gray-900 px-5 py-16 text-white">
+            <div className = "mx-auto max-w-7xl">
+              <h2 className = "text-3xl font-bold"> Games Available </h2>
+              <p className = "mt-2 text-gray-400">
+                Choose your game and find teams to compete against.
+              </p>
+
+
+            <div className = "mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+              <div className = "rounded-xl border border-gray-800 bg-gray-950 p-6">
+                <h3 className = "text-xl font-bold">
+                  Valorant
+                </h3>
+                <p className = "mt-2 text-sm text-gray-400">
+                  Tactical FPS
+                </p>
+              </div>
+            
+            <div className = "rounded -xl border border-gray-800 bg-gray-950 p-6">
+                <h3 className = "text-xl font-bold">
+                  Mobile Legends
+                </h3>
+                <p className = "mt-2 text-sm text-gray-400">
+                  MOBA
+                </p>
+              </div>
+            
+            <div className = "rounded-xl border border-gray-800 bg-gray-950 p-6">
+                <h3 className = "text-xl font-bold">
+                  League of Legends
+                </h3>
+                <p className = "mt-2 text-sm text-gray-400">
+                  MOBA
+                </p>
+              </div>
+
+            <div className = "rounded-xl border border-gray-800 bg-gray-950 p-6">
+                <h3 className = "text-xl font-bold">
+                  Call of Duty
+                </h3>
+                <p className = "mt-2 text-sm text-gray-400">
+                  FPS
+                </p>
+              </div>
+
+            </div>
+            
+            </div>
+          </section>
+     </div>
   )
 }
 
