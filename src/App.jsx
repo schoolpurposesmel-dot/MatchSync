@@ -1,9 +1,13 @@
-import HomePage from './components/homepage/HomePage'
+import HomePage from './components/homepage/HomePage';
+import DashboardPage from './components/dashboard/DashboardPage';
 
 function App() {
   return (
-    <HomePage />
-  )
+    <>
+      { <HomePage /> }
+      <DashboardPage />
+    </>
+  );
 }
 
-export default App
+export default App;
