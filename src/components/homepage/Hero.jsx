@@ -1,7 +1,12 @@
-
+import hero_bg from "../../assets/hero_bg.jpg";
 function Hero(){
     return(
-        <section className = "bg-gradient-to-br from-gray-900 via-gray-950 to-purple-950 px-8 py-24 text-white" >
+        <section
+                className="relative bg-gray-950 px-8 py-24 text-white"
+                
+                
+                >
+               
                 <div className = "mx-auto max-w-7xl">
                 <h1 className="text-5xl font-bold text-purple-500">
                   Find Your Next <span className="text-purple-500">Rival</span>
@@ -23,6 +28,7 @@ function Hero(){
                 </div>
                 </div>
               </section>
+             
     )
 }
 
