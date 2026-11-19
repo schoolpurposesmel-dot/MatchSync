@@ -1,0 +1,13 @@
+feat(auth): add login and registration flow
+
+- add AuthPage with LoginForm and RegisterForm
+- add reusable FormField (inline errors, show/hide password),
+  SubmitButton (loading/disabled state) and AuthAlert
+- add useAuthForm hook and validators for client-side validation
+- add authService stub (simulated latency, session saved without password;
+  "remember me" uses localStorage, otherwise sessionStorage)
+- add useHashRoute hook for #/login, #/register and #/dashboard routing
+- render one page at a time in App instead of stacking home and dashboard
+- link Log In and Sign Up from the Navbar
+- reserve space for field messages so inline errors don't shift the
+  layout and swallow clicks on the submit button

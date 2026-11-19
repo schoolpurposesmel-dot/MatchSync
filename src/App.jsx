@@ -1,13 +1,27 @@
+import { useEffect } from 'react';
 import HomePage from './components/homepage/HomePage';
 import DashboardPage from './components/dashboard/DashboardPage';
+import AuthPage from './components/auth/AuthPage';
+import useHashRoute from './hooks/useHashRoute.jsx';
 
 function App() {
-  return (
-    <>
-      { <HomePage /> }
-      <DashboardPage />
-    </>
-  );
+  const route = useHashRoute();
+
+  // Start each page at the top when switching between pages.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route]);
+
+  switch (route) {
+    case 'login':
+      return <AuthPage mode="login" />;
+    case 'register':
+      return <AuthPage mode="register" />;
+    case 'dashboard':
+      return <DashboardPage />;
+    default:
+      return <HomePage />;
+  }
 }
 
 export default App;
