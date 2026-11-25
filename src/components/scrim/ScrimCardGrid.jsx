@@ -1,4 +1,5 @@
 import ScrimCard from './ScrimCard';
+import CreateListing from './CreateListing';
 
 
 
@@ -62,6 +63,7 @@ function ScrimCardGrid(){
 
             </div>
 
+            <CreateListing />
             
         </div>
         
