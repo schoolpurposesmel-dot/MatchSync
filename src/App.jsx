@@ -4,6 +4,7 @@ import DashboardPage from './components/dashboard/DashboardPage';
 import AuthPage from './components/auth/AuthPage';
 import useHashRoute from './hooks/useHashRoute.jsx';
 import Scrims from './components/scrim/Scrims';
+import UserTeamProfilePage from './components/profile/UserTeamProfilePage';
 
 function App() {
   const route = useHashRoute();
@@ -22,6 +23,8 @@ function App() {
       return <DashboardPage />;
     case 'scrims':
       return <Scrims />;
+    case 'profile':
+      return <UserTeamProfilePage />;
     default:
       return <HomePage />;
   }

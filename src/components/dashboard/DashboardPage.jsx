@@ -214,7 +214,7 @@ export default function DashboardPage() {
               CIT-U Esports Division · Active Roster
             </span>
             <h1 className="text-2xl sm:text-3xl font-bold text-purple-400 tracking-tight">
-              Team Dashboard
+              Team Shadow
             </h1>
             <p className="text-sm text-slate-300/80 mt-1 max-w-xl">
               Track your upcoming matches, active scrims, tournament brackets, and team updates.
