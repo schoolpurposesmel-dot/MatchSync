@@ -1,4 +1,5 @@
 import ScrimFilterBar from './ScrimFilterBar';
+import ScrimCardGrid from './ScrimCardGrid';
 
 function Scrims(){
     return (
@@ -16,6 +17,9 @@ function Scrims(){
             </div>
 
             <ScrimFilterBar />
+
+            <ScrimCardGrid />
+            
             
             
             </div>
