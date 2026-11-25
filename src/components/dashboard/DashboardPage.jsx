@@ -187,11 +187,18 @@ export default function DashboardPage() {
             >
               Dashboard
             </button>
+            <button
+              type="button"
+              onClick={() => goToRoute('profile')}
+              className="text-slate-400 hover:text-white transition cursor-pointer"
+            >
+              Profile
+            </button>
           </div>
 
           <button
             type="button"
-            onClick={() => goToRoute('login')}
+            onClick={() => goToRoute('profile')}
             className="px-3.5 py-1.5 bg-[#9333ea] hover:bg-[#7e22ce] text-white text-xs font-semibold rounded-md transition cursor-pointer"
           >
             Team Shadow
@@ -282,6 +289,14 @@ export default function DashboardPage() {
                   <span className="text-slate-200 font-medium">Today, 7:45 PM</span>
                 </div>
               </div>
+
+              <button
+                type="button"
+                onClick={() => goToRoute('profile')}
+                className="w-full mt-4 py-2 bg-[#23293a] hover:bg-[#2d354b] text-slate-200 text-xs font-medium rounded-md transition cursor-pointer"
+              >
+                Manage Roster &amp; Profile
+              </button>
             </div>
 
             <NotificationsPanel
