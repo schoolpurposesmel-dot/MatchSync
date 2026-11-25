@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import heroBg from '../../assets/hero_bg.jpg';
 import QuickNavigation from './QuickNavigation';
 import UpcomingMatches from './UpcomingMatches';
 import MyScrims from './MyScrims';
@@ -198,16 +199,43 @@ export default function DashboardPage() {
         </div>
       </nav>
 
-      {/* Header Banner */}
+      {/* Hero Banner using existing hero_bg.jpg + Team Stat Strip */}
       <div className="relative overflow-hidden border-b border-white/10 bg-[#0b0e17]">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-purple-900/30 via-indigo-950/20 to-purple-900/20" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-purple-400 tracking-tight">
-            Team Dashboard
-          </h1>
-          <p className="text-sm text-slate-400 mt-1">
-            Track your upcoming matches, active scrims, tournament brackets, and team updates.
-          </p>
+        <img
+          src={heroBg}
+          alt=""
+          className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#07090f] via-purple-950/50 to-[#07090f]/90" />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-9 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <span className="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 mb-2">
+              CIT-U Esports Division · Active Roster
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-bold text-purple-400 tracking-tight">
+              Team Dashboard
+            </h1>
+            <p className="text-sm text-slate-300/80 mt-1 max-w-xl">
+              Track your upcoming matches, active scrims, tournament brackets, and team updates.
+            </p>
+          </div>
+
+          {/* Quick Team Stats to fill right-side header space */}
+          <div className="grid grid-cols-3 gap-3 shrink-0">
+            <div className="bg-[#111522]/90 border border-white/10 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-white">14–6</p>
+              <p className="text-[11px] text-slate-400">Scrim W/L</p>
+            </div>
+            <div className="bg-[#111522]/90 border border-white/10 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-emerald-400">70%</p>
+              <p className="text-[11px] text-slate-400">Win Rate</p>
+            </div>
+            <div className="bg-[#111522]/90 border border-white/10 rounded-lg px-4 py-3 text-center">
+              <p className="text-lg font-bold text-purple-400">#2</p>
+              <p className="text-[11px] text-slate-400">Campus Seed</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -216,6 +244,7 @@ export default function DashboardPage() {
         <QuickNavigation onNavigate={goToRoute} onScrollTo={scrollToSection} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left 2 Columns */}
           <div className="lg:col-span-2 space-y-6">
             <UpcomingMatches matches={matches} onToggleReady={handleToggleReady} />
             <MyScrims
@@ -226,7 +255,35 @@ export default function DashboardPage() {
             <MyTournaments tournaments={INITIAL_TOURNAMENTS} />
           </div>
 
-          <div className="lg:col-span-1">
+          {/* Right 1 Column: Team Overview + Notifications */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="bg-[#111522] border border-white/10 rounded-xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-base font-bold text-white">Team Shadow</h2>
+                  <p className="text-xs text-slate-400">Valorant · Asia-Pacific</p>
+                </div>
+                <span className="px-2 py-0.5 text-[11px] font-medium rounded bg-emerald-500/15 text-emerald-400">
+                  5/6 Ready
+                </span>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between py-1.5 border-b border-white/5">
+                  <span className="text-slate-400">Team Captain</span>
+                  <span className="text-slate-200 font-medium">DynamicCydric</span>
+                </div>
+                <div className="flex justify-between py-1.5 border-b border-white/5">
+                  <span className="text-slate-400">Average Rank</span>
+                  <span className="text-purple-300 font-medium">Diamond III</span>
+                </div>
+                <div className="flex justify-between py-1.5">
+                  <span className="text-slate-400">Next Check-In</span>
+                  <span className="text-slate-200 font-medium">Today, 7:45 PM</span>
+                </div>
+              </div>
+            </div>
+
             <NotificationsPanel
               notifications={notifications}
               onDismiss={handleDismissNotification}

@@ -1,4 +1,15 @@
 import React, { useState } from 'react';
+import valorantImg from '../../assets/valorant.jpg';
+import mlImg from '../../assets/Ml.jpg';
+import codImg from '../../assets/COD.jpg';
+import lolImg from '../../assets/LOL.jpg';
+
+const GAME_BANNERS = {
+  Valorant: valorantImg,
+  'Mobile Legends': mlImg,
+  'Call of Duty Mobile': codImg,
+  'League of Legends': lolImg,
+};
 
 export default function MyScrims({ scrims, onAddScrim, onRemoveScrim }) {
   const [showForm, setShowForm] = useState(false);
@@ -95,7 +106,7 @@ export default function MyScrims({ scrims, onAddScrim, onRemoveScrim }) {
         </form>
       )}
 
-      {/* Scrim List */}
+      {/* Scrim List with Game Artwork Banner matching HomePage */}
       <div className="space-y-3">
         {scrims.length === 0 ? (
           <p className="text-xs text-slate-400 py-4 text-center">
@@ -105,34 +116,44 @@ export default function MyScrims({ scrims, onAddScrim, onRemoveScrim }) {
           scrims.map((scrim) => (
             <div
               key={scrim.id}
-              className="bg-[#1a2033] border border-white/5 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+              className="bg-[#1a2033] border border-white/5 hover:border-purple-500/40 rounded-lg overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between transition"
             >
-              <div>
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <h3 className="text-base font-bold text-white">{scrim.opponent}</h3>
-                  <span className="px-2 py-0.5 text-[11px] font-medium rounded bg-[#111522] text-slate-300 border border-white/10">
-                    {scrim.game}
-                  </span>
-                  <span
-                    className={`px-2 py-0.5 text-[11px] font-medium rounded ${
-                      scrim.status === 'Open'
-                        ? 'bg-emerald-500/15 text-emerald-400'
-                        : 'bg-purple-500/20 text-purple-300'
-                    }`}
-                  >
-                    {scrim.status}
-                  </span>
-                </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                {/* Game Thumbnail */}
+                <img
+                  src={GAME_BANNERS[scrim.game] || valorantImg}
+                  alt={scrim.game}
+                  className="w-full sm:w-36 h-28 object-cover shrink-0"
+                />
 
-                <p className="text-xs text-slate-400 mt-1">{scrim.note}</p>
-                <p className="text-xs text-slate-400 mt-1">
-                  Rank: <span className="text-slate-300">{scrim.rank}</span> · Region:{' '}
-                  <span className="text-slate-300">{scrim.region}</span> · Mode:{' '}
-                  <span className="text-slate-300">{scrim.mode}</span>
-                </p>
+                {/* Scrim Info */}
+                <div className="p-4 sm:py-3 sm:px-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-base font-bold text-white">{scrim.opponent}</h3>
+                    <span className="px-2 py-0.5 text-[11px] font-medium rounded bg-[#111522] text-slate-300 border border-white/10">
+                      {scrim.game}
+                    </span>
+                    <span
+                      className={`px-2 py-0.5 text-[11px] font-medium rounded ${
+                        scrim.status === 'Open'
+                          ? 'bg-emerald-500/15 text-emerald-400'
+                          : 'bg-purple-500/20 text-purple-300'
+                      }`}
+                    >
+                      {scrim.status}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-400 mt-1">{scrim.note}</p>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Rank: <span className="text-slate-300">{scrim.rank}</span> · Region:{' '}
+                    <span className="text-slate-300">{scrim.region}</span> · Mode:{' '}
+                    <span className="text-slate-300">{scrim.mode}</span>
+                  </p>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-2 px-4 pb-4 sm:py-0 shrink-0">
                 <button
                   type="button"
                   onClick={() => setSelectedScrim(scrim)}
@@ -157,48 +178,55 @@ export default function MyScrims({ scrims, onAddScrim, onRemoveScrim }) {
       {/* Scrim Details Modal */}
       {selectedScrim && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="bg-[#111522] border border-white/15 rounded-xl max-w-md w-full p-6 space-y-4">
-            <div className="flex items-start justify-between">
-              <div>
-                <span className="text-xs font-medium text-emerald-400">
-                  {selectedScrim.game} · {selectedScrim.status}
-                </span>
-                <h3 className="text-lg font-bold text-white mt-0.5">
-                  {selectedScrim.opponent}
-                </h3>
+          <div className="bg-[#111522] border border-white/15 rounded-xl max-w-md w-full overflow-hidden">
+            <img
+              src={GAME_BANNERS[selectedScrim.game] || valorantImg}
+              alt={selectedScrim.game}
+              className="w-full h-32 object-cover"
+            />
+            <div className="p-6 space-y-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <span className="text-xs font-medium text-emerald-400">
+                    {selectedScrim.game} · {selectedScrim.status}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mt-0.5">
+                    {selectedScrim.opponent}
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedScrim(null)}
+                  className="text-slate-400 hover:text-white text-sm cursor-pointer"
+                >
+                  ✕
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => setSelectedScrim(null)}
-                className="text-slate-400 hover:text-white text-sm cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">{selectedScrim.note}</p>
+              <p className="text-xs text-slate-300 leading-relaxed">{selectedScrim.note}</p>
 
-            <div className="bg-[#1a2033] border border-white/5 rounded-lg p-3.5 text-xs space-y-1.5">
-              <div className="flex justify-between">
-                <span className="text-slate-400">Rank Requirement:</span>
-                <span className="text-white font-medium">{selectedScrim.rank}</span>
+              <div className="bg-[#1a2033] border border-white/5 rounded-lg p-3.5 text-xs space-y-1.5">
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Rank Requirement:</span>
+                  <span className="text-white font-medium">{selectedScrim.rank}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Region &amp; Mode:</span>
+                  <span className="text-white font-medium">
+                    {selectedScrim.region} ({selectedScrim.mode})
+                  </span>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Region &amp; Mode:</span>
-                <span className="text-white font-medium">
-                  {selectedScrim.region} ({selectedScrim.mode})
-                </span>
-              </div>
-            </div>
 
-            <div className="flex justify-end gap-2">
-              <button
-                type="button"
-                onClick={() => setSelectedScrim(null)}
-                className="px-4 py-2 bg-[#9333ea] hover:bg-[#7e22ce] text-white text-xs font-semibold rounded-md transition cursor-pointer"
-              >
-                Done
-              </button>
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setSelectedScrim(null)}
+                  className="px-4 py-2 bg-[#9333ea] hover:bg-[#7e22ce] text-white text-xs font-semibold rounded-md transition cursor-pointer"
+                >
+                  Done
+                </button>
+              </div>
             </div>
           </div>
         </div>
