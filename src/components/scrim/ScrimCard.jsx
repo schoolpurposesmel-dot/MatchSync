@@ -1,36 +1,36 @@
 
-function ScrimCard(){
+function ScrimCard({teamName, status, game, region, date, time, skilllevel}){
     return(
         <div className = "bg-[#111522] border border-white/10 rounded-xl p-5">
             <div className = "flex items-center justify-between">
             <h3 className = "text-lg font-bold text-white">
-                Team Alpha
+                {teamName}
             </h3>
 
             <span className="text-xs bg-green-500/10 text-green-400 px-3 py-1 rounded-full">
-                Open
+                {status}
             </span>
              </div>
 
         <p className="text-sm text-slate-400 mt-3">
-            Valorant
+            {game}
         </p>
 
         <p className="text-sm text-slate-400 mt-2">
-            Region: Asia
+            Region: {region}
         </p>
 
             <div className="mt-4 space-y-2">
             <p className="text-sm text-slate-300">
-                <span className="text-slate-500">Date:</span> November 28, 2026
+                <span className="text-slate-500">Date:</span> {date}
             </p>
 
             <p className="text-sm text-slate-300">
-                <span className="text-slate-500">Time:</span> 7:00PM
+                <span className="text-slate-500">Time:</span> {time}
             </p>
 
             <p className="text-sm text-slate-300">
-                <span className="text-slate-500">Skill Level: </span> Immortal
+                <span className="text-slate-500">Skill Level: </span> {skilllevel}
             </p>
             </div>
 
