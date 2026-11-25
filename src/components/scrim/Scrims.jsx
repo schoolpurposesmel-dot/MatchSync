@@ -15,16 +15,22 @@ function Scrims(){
                 </p>
             </div>
 
-            <div className = "bg-[#111522] border border-white/10 rounded-xl p-5 mb-8">
-                <h2 className="text-lg font-semibold mb-4">
-                    Search Scrims
-                </h2>
+            <div className = "grid grid-cols-1 md:grid-cols-2 gap-4">
+              
 
                 <input
                 type="text"
                 placeholder="Search by team name..."
                 className="w-full bg-[#080b14] border border-white/10 rounded-lg px-4 py-3 text-white outline-none"
                 />
+
+                <select className = "w-full bg-[#080b14] border border-white/10 rounded-lg px-4 py-3 text-slate-300 outline-none">
+                <option value=""> All Games</option>
+                <option value="valorant">Valorant</option>
+                <option value="mlbb">Mobile Legends</option>
+                <option value="codm">Call of Duty Mobile</option>
+                <option value="lol">League of Legends</option>
+                </select>
             </div>
             
         </div>
