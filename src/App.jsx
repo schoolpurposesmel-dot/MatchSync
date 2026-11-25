@@ -3,6 +3,7 @@ import HomePage from './components/homepage/HomePage';
 import DashboardPage from './components/dashboard/DashboardPage';
 import AuthPage from './components/auth/AuthPage';
 import useHashRoute from './hooks/useHashRoute.jsx';
+import Scrims from './components/scrim/Scrims';
 
 function App() {
   const route = useHashRoute();
@@ -19,6 +20,8 @@ function App() {
       return <AuthPage mode="register" />;
     case 'dashboard':
       return <DashboardPage />;
+    case 'scrims':
+      return <Scrims />;
     default:
       return <HomePage />;
   }

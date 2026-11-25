@@ -5,7 +5,7 @@ export default function QuickNavigation({ onNavigate, onScrollTo }) {
     {
       label: 'Find Scrims',
       sublabel: 'Jump to active scrim lobbies',
-      action: () => onScrollTo('scrims-section'),
+      action: () => onNavigate('Scrims'),
       primary: true,
     },
     {
