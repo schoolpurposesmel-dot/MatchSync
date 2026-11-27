@@ -19,21 +19,33 @@ export default function MyTournaments({ tournaments }) {
           </p>
         </div>
 
-        <div className="flex items-center gap-1.5">
-          {['All', 'Valorant', 'Mobile Legends'].map((tab) => (
-            <button
-              key={tab}
-              type="button"
-              onClick={() => setFilterGame(tab)}
-              className={`px-2.5 py-1 text-xs font-medium rounded transition cursor-pointer ${
-                filterGame === tab
-                  ? 'bg-[#9333ea] text-white'
-                  : 'bg-[#1a2033] text-slate-400 hover:text-white'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-1.5">
+            {['All', 'Valorant', 'Mobile Legends'].map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setFilterGame(tab)}
+                className={`px-2.5 py-1 text-xs font-medium rounded transition cursor-pointer ${
+                  filterGame === tab
+                    ? 'bg-[#9333ea] text-white'
+                    : 'bg-[#1a2033] text-slate-400 hover:text-white'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              window.location.hash = 'create-tournament';
+            }}
+            className="px-3 py-1 bg-[#23293a] hover:bg-[#2d354b] text-slate-200 font-medium text-xs rounded transition cursor-pointer"
+          >
+            + Create Tournament
+          </button>
         </div>
       </div>
 

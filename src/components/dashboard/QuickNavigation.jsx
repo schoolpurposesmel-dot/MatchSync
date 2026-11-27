@@ -4,14 +4,14 @@ export default function QuickNavigation({ onNavigate, onScrollTo }) {
   const navItems = [
     {
       label: 'Find Scrims',
-      sublabel: 'Jump to active scrim lobbies',
-      action: () => onNavigate('Scrims'),
+      sublabel: 'Browse active scrim lobbies',
+      action: () => onNavigate('scrims'),
       primary: true,
     },
     {
-      label: 'Browse Tournaments',
-      sublabel: 'View enrolled brackets',
-      action: () => onScrollTo('tournaments-section'),
+      label: 'Create Tournament',
+      sublabel: 'Configure brackets & schedules',
+      action: () => onNavigate('create-tournament'),
       primary: false,
     },
     {
@@ -21,9 +21,9 @@ export default function QuickNavigation({ onNavigate, onScrollTo }) {
       primary: false,
     },
     {
-      label: 'Home Overview',
-      sublabel: 'Return to MatchSync landing',
-      action: () => onNavigate('home'),
+      label: 'Team Profile',
+      sublabel: 'Manage roster & team settings',
+      action: () => onNavigate('profile'),
       primary: false,
     },
   ];
