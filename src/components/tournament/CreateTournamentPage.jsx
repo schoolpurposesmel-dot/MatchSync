@@ -62,9 +62,10 @@ export default function CreateTournamentPage() {
     const newTournament = {
       id: Date.now(),
       ...formData,
-      bracketSeedCount: formData.format === 'Single Elimination'
-        ? `${Math.log2(formData.maxTeams)} Rounds`
-        : `${formData.maxTeams - 1} Group Matches/Team`,
+      bracketSeedCount:
+        formData.format === 'Single Elimination'
+          ? `${Math.log2(formData.maxTeams)} Rounds`
+          : `${formData.maxTeams - 1} Group Matches/Team`,
     };
     setCreatedTournaments((prev) => [newTournament, ...prev]);
     setPublishedBanner(newTournament);
@@ -91,13 +92,6 @@ export default function CreateTournamentPage() {
               className="text-slate-400 hover:text-white transition cursor-pointer"
             >
               Home
-            </button>
-            <button
-              type="button"
-              onClick={() => goToRoute('scrims')}
-              className="text-slate-400 hover:text-white transition cursor-pointer"
-            >
-              Scrims
             </button>
             <button
               type="button"
@@ -192,7 +186,6 @@ export default function CreateTournamentPage() {
 
           {/* Right 1 Column: Live Preview & Published Tournaments */}
           <div className="lg:col-span-1 space-y-6 lg:sticky lg:top-22">
-            {/* Live Preview Card */}
             <div className="bg-[#111522] border border-white/10 rounded-xl overflow-hidden">
               <div className="relative h-36">
                 <img
@@ -228,7 +221,7 @@ export default function CreateTournamentPage() {
                   <div className="flex justify-between">
                     <span className="text-slate-400">Capacity &amp; Series</span>
                     <span className="text-slate-200 font-medium">
-                      {formData.maxTeams} Teams · {formData.seriesFormat.split(' ')[0]} {formData.seriesFormat.split(' ')[1]} {formData.seriesFormat.split(' ')[2]}
+                      {formData.maxTeams} Teams · {formData.seriesFormat}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -253,7 +246,6 @@ export default function CreateTournamentPage() {
               </div>
             </div>
 
-            {/* Recently Created Tournaments List */}
             {createdTournaments.length > 0 && (
               <div className="bg-[#111522] border border-white/10 rounded-xl p-5 space-y-3">
                 <h3 className="text-sm font-bold text-white">

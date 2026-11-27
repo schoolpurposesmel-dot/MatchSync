@@ -198,21 +198,40 @@ export default function TournamentForm({ formData, onChangeField, onSubmit, onRe
         </div>
       </div>
 
-      {/* Submit & Reset Bar */}
-      <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
-        <button
-          type="button"
-          onClick={onReset}
-          className="px-4 py-2.5 bg-[#23293a] hover:bg-[#2d354b] text-slate-200 text-xs font-medium rounded-md transition cursor-pointer"
-        >
-          Reset Form
-        </button>
-        <button
-          type="submit"
-          className="px-6 py-2.5 bg-[#9333ea] hover:bg-[#7e22ce] text-white text-xs font-semibold rounded-md transition cursor-pointer"
-        >
-          Publish Tournament
-        </button>
+      {/* Highlighted Primary CTA Bar */}
+      <div className="bg-gradient-to-r from-purple-950/50 via-[#111522] to-[#111522] border border-purple-500/40 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_0_30px_rgba(147,51,234,0.15)]">
+        <div>
+          <p className="text-sm font-bold text-white">Ready to launch your tournament?</p>
+          <p className="text-xs text-slate-400 mt-0.5">
+            Publishes registration lobby and initializes your {formData.format} bracket.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+          <button
+            type="button"
+            onClick={onReset}
+            className="px-4 py-2.5 bg-[#23293a] hover:bg-[#2d354b] text-slate-300 text-xs font-medium rounded-lg transition cursor-pointer"
+          >
+            Reset
+          </button>
+
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#9333ea] via-purple-600 to-indigo-600 hover:from-[#7e22ce] hover:to-indigo-500 text-white text-sm font-bold tracking-wide rounded-lg border border-purple-400/40 shadow-[0_0_24px_rgba(147,51,234,0.55)] hover:shadow-[0_0_32px_rgba(147,51,234,0.8)] hover:scale-[1.02] active:scale-[0.99] transition-all cursor-pointer"
+          >
+            <svg
+              className="w-4 h-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
+            Create Tournament
+          </button>
+        </div>
       </div>
     </form>
   );

@@ -42,9 +42,10 @@ export default function MyTournaments({ tournaments }) {
             onClick={() => {
               window.location.hash = 'create-tournament';
             }}
-            className="px-3 py-1 bg-[#23293a] hover:bg-[#2d354b] text-slate-200 font-medium text-xs rounded transition cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-[#9333ea] to-indigo-600 hover:from-[#7e22ce] hover:to-indigo-500 text-white font-semibold text-xs rounded-md border border-purple-400/30 shadow-[0_0_16px_rgba(147,51,234,0.45)] hover:shadow-[0_0_22px_rgba(147,51,234,0.7)] transition-all cursor-pointer"
           >
-            + Create Tournament
+            <span className="text-sm leading-none">+</span>
+            Create Tournament
           </button>
         </div>
       </div>
