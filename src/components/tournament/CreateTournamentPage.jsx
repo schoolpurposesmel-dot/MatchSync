@@ -48,6 +48,14 @@ export default function CreateTournamentPage() {
     window.location.hash = hash;
   };
 
+  const handleGoBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.hash = 'dashboard';
+    }
+  };
+
   const handleChangeField = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
@@ -135,16 +143,37 @@ export default function CreateTournamentPage() {
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#07090f] via-purple-950/50 to-[#07090f]/90" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <span className="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 mb-2">
-            Organizer Console · Bracket Engine
-          </span>
-          <h1 className="text-2xl sm:text-3xl font-bold text-purple-400 tracking-tight">
-            Create &amp; Configure Tournament
-          </h1>
-          <p className="text-sm text-slate-300/80 mt-1 max-w-2xl">
-            Set up Single Elimination or Round Robin brackets, configure match schedules, and publish registration lobbies.
-          </p>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-3">
+          <div>
+            <button
+              type="button"
+              onClick={handleGoBack}
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#111522]/90 hover:bg-[#1a2033] text-slate-300 hover:text-white text-xs font-medium rounded-lg border border-white/10 hover:border-purple-500/40 transition cursor-pointer"
+            >
+              <svg
+                className="w-3.5 h-3.5 text-purple-400 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Back</span>
+            </button>
+          </div>
+
+          <div>
+            <span className="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 mb-2">
+              Organizer Console · Bracket Engine
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-bold text-purple-400 tracking-tight">
+              Create &amp; Configure Tournament
+            </h1>
+            <p className="text-sm text-slate-300/80 mt-1 max-w-2xl">
+              Set up Single Elimination or Round Robin brackets, configure match schedules, and publish registration lobbies.
+            </p>
+          </div>
         </div>
       </div>
 
