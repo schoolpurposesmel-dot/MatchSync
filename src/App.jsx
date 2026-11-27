@@ -5,6 +5,7 @@ import AuthPage from './components/auth/AuthPage';
 import useHashRoute from './hooks/useHashRoute.jsx';
 import Scrims from './components/scrim/Scrims';
 import UserTeamProfilePage from './components/profile/UserTeamProfilePage';
+import CreateTournamentPage from './components/tournament/CreateTournamentPage';
 
 function App() {
   const route = useHashRoute();
@@ -25,6 +26,8 @@ function App() {
       return <Scrims />;
     case 'profile':
       return <UserTeamProfilePage />;
+    case 'create-tournament':
+      return <CreateTournamentPage />;
     default:
       return <HomePage />;
   }
