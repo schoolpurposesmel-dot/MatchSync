@@ -1,5 +1,5 @@
 
-function ScrimCard({teamName, status, game, region, date, time, skilllevel}){
+function ScrimCard({id,teamName, status, game, region, date, time, skilllevel, onViewDetails}){
     return(
         <div className = "bg-[#111522] border border-white/10 rounded-xl p-5">
             <div className = "flex items-center justify-between">
@@ -36,6 +36,7 @@ function ScrimCard({teamName, status, game, region, date, time, skilllevel}){
 
             <button
             type = "button"
+            onClick={() => onViewDetails(id)}
             className = "w-full mt-5 bg-purple-600 hover:bg-purple-900 text-white font-semibold py-2.5 rounded-lg transition cursor-pointer"
             >
                 View Details

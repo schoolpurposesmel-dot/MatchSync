@@ -1,6 +1,8 @@
 import ScrimCard from './ScrimCard';
 import CreateListing from './CreateListing';
+import ListingDetails from './ListingDetails';
 import { useState } from 'react';
+
 
 
 
@@ -43,6 +45,14 @@ function ScrimCardGrid(){
                 
     ]);
 
+    const [selectedScrim, setSelectedScrim] = useState(null);
+
+    function handleViewDetails(id){
+        const selected = scrims.find((scrim) => scrim.id === id);
+
+        setSelectedScrim(selected);
+    }
+
     function handleCreateListing(newScrim){
         setScrims([...scrims, {
             ...newScrim,
@@ -55,6 +65,14 @@ function ScrimCardGrid(){
        
         
         <div className = "mt-8">
+
+              {selectedScrim ? (
+                <ListingDetails 
+                scrim={selectedScrim}
+                onBack={() => setSelectedScrim(null)} />
+             ) : (
+                <>
+                
 
              <div className = "flex items-center justify-between mb-5">
             <div>
@@ -81,6 +99,7 @@ function ScrimCardGrid(){
 
                     <ScrimCard
                     key={scrim.id}
+                    id={scrim.id}
                     teamName={scrim.teamName}
                     status={scrim.status}
                     game={scrim.game}
@@ -88,7 +107,7 @@ function ScrimCardGrid(){
                     date={scrim.date}
                     time={scrim.time}
                     skilllevel={scrim.skilllevel}
-                    
+                    onViewDetails={handleViewDetails}
                     />
                 ))
                 }
@@ -101,6 +120,10 @@ function ScrimCardGrid(){
                         onClose={() => setShowCreateListing(false)}
                         onCreateListing={handleCreateListing}
                 />
+             )}
+
+           
+                </>
              )}
         </div>
         
