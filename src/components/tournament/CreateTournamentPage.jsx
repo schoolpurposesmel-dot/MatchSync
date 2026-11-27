@@ -103,17 +103,24 @@ export default function CreateTournamentPage() {
             </button>
             <button
               type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="text-white font-semibold cursor-pointer"
-            >
-              Create Tournament
-            </button>
-            <button
-              type="button"
               onClick={() => goToRoute('dashboard')}
               className="text-slate-400 hover:text-white transition cursor-pointer"
             >
               Dashboard
+            </button>
+            <button
+              type="button"
+              onClick={() => goToRoute('tournaments')}
+              className="text-slate-400 hover:text-white transition cursor-pointer"
+            >
+              Tournaments
+            </button>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-white font-semibold cursor-pointer"
+            >
+              Create Tournament
             </button>
             <button
               type="button"
@@ -192,13 +199,22 @@ export default function CreateTournamentPage() {
                 {publishedBanner.schedule.startTime}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setPublishedBanner(null)}
-              className="text-xs text-slate-400 hover:text-white self-end sm:self-center cursor-pointer"
-            >
-              Dismiss ✕
-            </button>
+            <div className="flex items-center gap-2.5 self-end sm:self-center">
+              <button
+                type="button"
+                onClick={() => goToRoute('tournaments')}
+                className="px-3.5 py-1.5 bg-gradient-to-r from-[#9333ea] to-indigo-600 hover:from-[#7e22ce] hover:to-indigo-500 text-white text-xs font-semibold rounded-md shadow-[0_0_14px_rgba(147,51,234,0.45)] transition cursor-pointer"
+              >
+                View in Tournament List →
+              </button>
+              <button
+                type="button"
+                onClick={() => setPublishedBanner(null)}
+                className="text-xs text-slate-400 hover:text-white cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
           </div>
         )}
 
@@ -277,9 +293,18 @@ export default function CreateTournamentPage() {
 
             {createdTournaments.length > 0 && (
               <div className="bg-[#111522] border border-white/10 rounded-xl p-5 space-y-3">
-                <h3 className="text-sm font-bold text-white">
-                  Created This Session ({createdTournaments.length})
-                </h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-white">
+                    Created This Session ({createdTournaments.length})
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={() => goToRoute('tournaments')}
+                    className="text-xs font-medium text-purple-400 hover:text-purple-300 cursor-pointer"
+                  >
+                    Open Hub →
+                  </button>
+                </div>
                 <div className="space-y-2.5">
                   {createdTournaments.map((t) => (
                     <div
