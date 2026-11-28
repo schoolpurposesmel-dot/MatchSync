@@ -1,5 +1,6 @@
 import LobbyHeader from './LobbyHeader';
 import RoomCredentials  from './RoomCredentials';
+import ChatBox from './ChatBox';
 
 function PrivateLobby({scrim}){
     return(
@@ -12,6 +13,7 @@ function PrivateLobby({scrim}){
         
             <LobbyHeader scrim={scrim} />
             <RoomCredentials />
+            <ChatBox />
         </div>
         
     )

@@ -3,7 +3,7 @@ import BookingForm from './BookingForm';
 
 
 
-function ListingDetails({scrim, onBack, onBookingSubmit, bookingRequests}){
+function ListingDetails({scrim, onBack, onBookingSubmit, bookingRequests, onOpenLobby}){
 
     const currentRequests = bookingRequests.filter(
         (request) => request.scrimId === scrim.id
@@ -94,6 +94,14 @@ function ListingDetails({scrim, onBack, onBookingSubmit, bookingRequests}){
                     </div>
                 )}
             </div>
+
+             <button
+                type="button"
+                onClick={onOpenLobby}
+                className="mt-6 bg-purple-600 hover:bg-purple-700 text-white px-5 py-3 rounded-lg font-semibold transition cursor-pointer"
+            >
+                Open Private Lobby
+            </button>
         </div>
     )
 }

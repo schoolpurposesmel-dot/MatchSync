@@ -1,6 +1,7 @@
 import ScrimCard from './ScrimCard';
 import CreateListing from './CreateListing';
 import ListingDetails from './ListingDetails';
+import PrivateLobby from '../lobby/PrivateLobby';
 import { useState } from 'react';
 
 
@@ -48,6 +49,7 @@ function ScrimCardGrid(){
     const [selectedScrim, setSelectedScrim] = useState(null);
 
     const[bookingRequests, setBookingRequests] = useState([]);
+    const [showLobby, setShowLobby] = useState(false);
 
     function handleViewDetails(id){
         const selected = scrims.find((scrim) => scrim.id === id);
@@ -74,12 +76,18 @@ function ScrimCardGrid(){
         
         <div className = "mt-8">
 
-              {selectedScrim ? (
+                {showLobby ? (
+                <PrivateLobby
+                    scrim={selectedScrim}
+                /> 
+            ) : 
+              selectedScrim ? (
                 <ListingDetails 
                 scrim={selectedScrim}
                 onBack={() => setSelectedScrim(null)}
                 onBookingSubmit={handleBookingSubmit} 
                 bookingRequests={bookingRequests}
+                onOpenLobby={() => setShowLobby(true)}
                 />
              ) : (
                 <>
