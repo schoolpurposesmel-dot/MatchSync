@@ -79,6 +79,7 @@ function ScrimCardGrid(){
                 {showLobby ? (
                 <PrivateLobby
                     scrim={selectedScrim}
+                    onBack={() => setShowLobby(false)}
                 /> 
             ) : 
               selectedScrim ? (
