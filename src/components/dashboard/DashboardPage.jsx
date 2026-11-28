@@ -189,6 +189,13 @@ export default function DashboardPage() {
             </button>
             <button
               type="button"
+              onClick={() => goToRoute('submit-score')}
+              className="text-slate-400 hover:text-white transition cursor-pointer"
+            >
+              Submit Score
+            </button>
+            <button
+              type="button"
               onClick={() => goToRoute('profile')}
               className="text-slate-400 hover:text-white transition cursor-pointer"
             >
