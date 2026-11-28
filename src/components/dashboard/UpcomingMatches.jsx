@@ -113,6 +113,15 @@ export default function UpcomingMatches({ matches, onToggleReady }) {
               </button>
               <button
                 type="button"
+                onClick={() => {
+                  window.location.hash = `/submit-score?ref=${selectedMatch.lobbyCode}`;
+                }}
+                className="px-3.5 py-2 bg-[#23293a] hover:bg-[#2d354b] text-purple-300 text-xs font-medium rounded-md transition cursor-pointer"
+              >
+                Submit Score
+              </button>
+              <button
+                type="button"
                 onClick={() => onToggleReady(selectedMatch.id)}
                 className={`px-4 py-2 text-xs font-semibold rounded-md transition cursor-pointer ${
                   selectedMatch.isReady

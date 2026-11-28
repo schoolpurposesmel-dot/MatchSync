@@ -7,6 +7,7 @@ import Scrims from './components/scrim/Scrims';
 import UserTeamProfilePage from './components/profile/UserTeamProfilePage';
 import CreateTournamentPage from './components/tournament/CreateTournamentPage';
 import TournamentListPage from './components/tournament/TournamentListPage';
+import ScoreSubmissionPage from './components/score/ScoreSubmissionPage';
 
 function App() {
   const route = useHashRoute();
@@ -31,6 +32,8 @@ function App() {
       return <CreateTournamentPage />;
     case 'tournaments':
       return <TournamentListPage />;
+    case 'submit-score':
+      return <ScoreSubmissionPage />;
     default:
       return <HomePage />;
   }
