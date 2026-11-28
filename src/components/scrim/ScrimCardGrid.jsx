@@ -47,6 +47,8 @@ function ScrimCardGrid(){
 
     const [selectedScrim, setSelectedScrim] = useState(null);
 
+    const[bookingRequests, setBookingRequests] = useState([]);
+
     function handleViewDetails(id){
         const selected = scrims.find((scrim) => scrim.id === id);
 
@@ -60,6 +62,12 @@ function ScrimCardGrid(){
             status: "Open"
         }])
     }
+
+    function handleBookingSubmit(newRequest){
+        setBookingRequests([...bookingRequests, newRequest]);
+
+        console.log("All Booking Requests: ", [...bookingRequests, newRequest]);
+    }
     return(
 
        
@@ -69,7 +77,10 @@ function ScrimCardGrid(){
               {selectedScrim ? (
                 <ListingDetails 
                 scrim={selectedScrim}
-                onBack={() => setSelectedScrim(null)} />
+                onBack={() => setSelectedScrim(null)}
+                onBookingSubmit={handleBookingSubmit} 
+                bookingRequests={bookingRequests}
+                />
              ) : (
                 <>
                 

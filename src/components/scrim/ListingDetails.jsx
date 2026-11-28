@@ -1,7 +1,13 @@
 import HostInfoCard from './HostInfoCard';
+import BookingForm from './BookingForm';
 
 
-function ListingDetails({scrim, onBack}){
+
+function ListingDetails({scrim, onBack, onBookingSubmit, bookingRequests}){
+
+    const currentRequests = bookingRequests.filter(
+        (request) => request.scrimId === scrim.id
+    );
     return(
         <div className="min-h-screen bg-[#080b14] p-8">
 
@@ -41,6 +47,53 @@ function ListingDetails({scrim, onBack}){
             </div>
 
             <HostInfoCard teamName={scrim.teamName} />
+            <BookingForm 
+            scrim={scrim}
+            onBookingSubmit={onBookingSubmit}
+            />
+
+            <div>
+                <h2> 
+                    Booking Requests
+                </h2>
+
+                {currentRequests.length === 0 ? (
+                    <p>No booking requests yet.</p>
+                ) : (
+                    <div className="mt-4 space-y-4">
+                        {currentRequests.map((request, index) => (
+                            <div
+                            key={index}
+                            className="bg-[#080b14] rounded-lg p-4"
+                            >
+                            <h3 className="text-white font-semibold">
+                                {request.teamName}
+                            </h3>
+
+                            <p className="text-slate-400 text-sm mt-1">
+                                Representative: {request.teamRep}
+                            </p>
+
+                            <p className="text-slate-400 text-sm mt-1">
+                                Region: {request.region}
+                            </p>
+
+                            <p className="text-slate-400 text-sm mt-1">
+                                Skill Level: {request.skilllevel}
+                            </p>
+
+                            <p className="text-slate-400 text-sm mt-1">
+                                Message: {request.message || "No message provided."}
+                            </p>
+
+                            <p className="text-yellow-400 text-sm mt-2">
+                                Status: {request.status}
+                            </p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
